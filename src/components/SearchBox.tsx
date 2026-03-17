@@ -30,7 +30,7 @@ const SearchBox = () => {
 		}
 
 		const timeout = setTimeout(async () => {
-			const res = await fetch(`/api/blogs?search=${encodeURIComponent(query)}`)
+			const res = await fetch('/.netlify/functions/api/api/blogs?search=${encodeURIComponent(query)}`)
 			const json = await res.json()
 			setSuggestions(json.data?.slice(0, 5) ?? [])
 			setIsOpen(true)
