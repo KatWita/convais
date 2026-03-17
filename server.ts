@@ -134,5 +134,5 @@ app.post('/api/comments', async c => {
 	}
 })
 
-console.log('🚀 Server runs at http://localhost:3000')
+console.log('🚀 Server runs at ')
 serve({ fetch: app.fetch, port: 3000 })
