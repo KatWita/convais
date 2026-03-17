@@ -5,7 +5,7 @@ import { db } from '../../src/db/db'
 import { comments, blogs } from '../../src/db/schema'
 import { arrayContains, and, ilike, or } from 'drizzle-orm'
 
-const app = new Hono().basePath('/api')
+const app = new Hono()
 
 app.use(
 	'/*',
@@ -16,7 +16,7 @@ app.use(
 	}),
 )
 
-app.get('/blogs', async c => {
+app.get('/api/blogs', async c => {
 	const slug = c.req.query('slug')
 	const pageQuery = c.req.query('page')
 	const limitQuery = c.req.query('limit')
@@ -74,7 +74,7 @@ app.get('/blogs', async c => {
 	}
 })
 
-app.post('/comments', async c => {
+app.post('/api/comments', async c => {
 	try {
 		const body = await c.req.json()
 		const { blogId, author, comment, avatar, parentId } = body
