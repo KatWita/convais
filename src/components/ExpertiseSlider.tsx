@@ -38,7 +38,7 @@ const ExpertiseSlider = () => {
 				{projects.map(slide => (
 					<SwiperSlide key={slide.id}>
 						<div className="expertise__slide">
-							<img src={slide.images.webp} alt="" />
+							<img src={slide.images.large} alt="" />
 						</div>
 					</SwiperSlide>
 				))}

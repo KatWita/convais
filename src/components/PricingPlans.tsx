@@ -5,7 +5,7 @@ const PricingPlans = () => {
 	return (
 		<>
 			{pricing.map(card => (
-				<PricingPlanCard {...card} key={card.id} />
+				<PricingPlanCard {...card} key={card.id} activePlan="monthly" />
 			))}
 		</>
 	)

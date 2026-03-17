@@ -3,7 +3,7 @@ import './button-tag.scss'
 type ButtonTagProps = React.ComponentPropsWithoutRef<'button'> & {
 	label: string
 	option?: 'pill' | 'br-8'
-	active: boolean
+	active?: boolean
 }
 
 const ButtonTag = ({ label, option = 'br-8', active, ...rest }: ButtonTagProps) => {
