@@ -1,0 +1,56 @@
+@use '../scss/variables' as *;
+
+.fun-facts {
+	position: relative;
+	padding: 7.5rem 0 14rem;
+	overflow: hidden;
+
+	.blur-bg {
+		&--one,
+		&--two {
+			width: 50%;
+			height: 50%;
+		}
+
+		&--one {
+			right: 5%;
+			top: 10%;
+			filter: blur(70px);
+		}
+
+		&--two {
+			right: -12%;
+			bottom: -10%;
+			filter: blur(50px);
+		}
+	}
+}
+
+//1024px
+@media (width >= 64rem) {
+	.fun-facts {
+		padding: 7.5rem 0;
+	}
+}
+
+//1280px
+@media (width >= 86rem) {
+	.facts .blur-bg {
+		&--one,
+		&--two {
+			width: 900px;
+			height: 900px;
+		}
+		&--one {
+			right: 5%;
+			top: -5%;
+			filter: blur(70px);
+		}
+
+		&--two {
+			right: -12%;
+			bottom: -10%;
+			filter: blur(50px);
+		}
+	}
+}

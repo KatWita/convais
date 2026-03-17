@@ -1,0 +1,35 @@
+@use '../scss/variables' as *;
+
+.btn-tag {
+	border: 1px solid $c-team-chart-border;
+	background-color: $c-team-chart-bg;
+	color: $c-very-dark-blue;
+	font-weight: $fw-semi-bold;
+	text-transform: capitalize;
+	transition:
+		border 0.3s,
+		color 0.3s;
+
+	&--pill {
+		padding: 0.5rem 1rem;
+		border-radius: $br-80;
+		font-size: clamp($fs-10, 0.0795rem + 2.7273vw, $fs-16);
+		pointer-events: none;
+	}
+
+	&--br-8 {
+		font-size: clamp(0.8125rem, -1.1875rem + 2.5vw, 1rem);
+		padding: 0.75rem 1.125rem;
+		border-radius: $br-8;
+	}
+
+	&:hover {
+		border: 1px solid hsla(0, 0%, 0%, 0.4);
+		color: hsla(0, 0%, 0%, 0.65);
+	}
+
+	&.active {
+		color: $c-white;
+		background-color: $c-very-dark-blue;
+	}
+}

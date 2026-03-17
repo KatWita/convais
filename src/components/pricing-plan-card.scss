@@ -1,0 +1,229 @@
+@use '../scss/variables' as *;
+
+.pricing .card {
+	display: grid;
+	grid-template-columns: minmax(100%, 270px);
+	place-content: center;
+
+	&--premium {
+		.card__amount {
+			color: $c-yellow;
+		}
+
+		.card__option {
+			color: $c-white;
+		}
+	}
+
+	&__price,
+	&__plan {
+		position: relative;
+	}
+
+	&__price-img,
+	&__plan-img {
+		width: 100%;
+	}
+
+	&__price-content,
+	&__plan-content {
+		position: absolute;
+		inset: 0;
+		top: 0;
+		left: 0;
+	}
+
+	&__option,
+	&__content-text {
+		font-family: $ff-dm-sans;
+	}
+
+	&__price {
+		&-img {
+			height: 150px;
+		}
+
+		&-content {
+			display: grid;
+			place-content: center;
+			margin-bottom: 1.5rem;
+			text-align: center;
+		}
+
+		.card {
+			&__dolar,
+			&__amount {
+				font-weight: $fw-bold;
+			}
+
+			&__amount {
+				font-size: $fs-60;
+			}
+
+			&__dolar {
+				font-size: $fs-16;
+			}
+
+			&__option {
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	&__plan {
+		top: -10px;
+
+		&-img {
+			height: 490px;
+		}
+
+		&-content {
+			padding: 3rem 1.5rem 0;
+
+			.card {
+				&__title {
+					font-size: $fs-30;
+				}
+
+				&__diamond {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin: 1.2rem auto;
+					width: 60px;
+					height: 60px;
+					border-radius: 50%;
+					border: 1px solid hsla(0, 0%, 0%, 0.15);
+					background-color: $c-team-chart-bg;
+
+					img {
+						width: 40px;
+					}
+				}
+			}
+
+			.card__content-text,
+			.about__check:last-of-type p {
+				color: $c-sub-text;
+			}
+
+			.about__checks {
+				padding-left: 0;
+			}
+		}
+	}
+
+	.btn-cta {
+		position: absolute;
+		bottom: -6px;
+		left: 11%;
+		max-width: 206px;
+		font-size: $fs-14;
+	}
+}
+
+@media (width >= 48rem) {
+	.pricing .card {
+		grid-template-columns: minmax(100%, 300px);
+
+		&__price-img {
+			height: 180px;
+		}
+
+		&__plan-img {
+			height: 510px;
+		}
+
+		&__plan .card__diamond {
+			margin: 1.4rem auto;
+			width: 70px;
+			height: 70px;
+
+			img {
+				width: 45px;
+			}
+		}
+
+		.btn-cta {
+			bottom: -14px;
+			left: 12.5%;
+			max-width: unset;
+			font-size: $fs-16;
+		}
+	}
+}
+
+@media (width >= 96rem) {
+	.pricing .card {
+		display: flex;
+		position: relative;
+		right: -20px;
+
+		&__price-img,
+		&__plan-img {
+			height: unset;
+		}
+
+		&__price {
+			&-img {
+				width: 245px;
+			}
+			&-content {
+				display: unset;
+				text-align: left;
+				padding-left: 40px;
+			}
+		}
+
+		&__plan {
+			top: 0;
+			left: -20px;
+
+			&-img {
+				width: 650px;
+			}
+
+			&-left {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				padding: 0.4rem 0 0.688rem;
+				width: 210px;
+			}
+
+			.about__checks {
+				width: 230px;
+			}
+
+			.about__check {
+				gap: 1.25rem;
+				margin-bottom: 1rem;
+			}
+
+			&-content {
+				display: flex;
+				gap: 2.5rem;
+				padding: 2.125rem 4.375rem 2.063rem;
+			}
+
+			.card__diamond {
+				margin: 0;
+				width: 90px;
+				height: 90px;
+
+				img {
+					width: 50px;
+				}
+			}
+		}
+
+		.btn-cta {
+			bottom: 118px;
+			left: unset;
+			right: -86px;
+			width: 230px;
+			max-width: unset;
+			rotate: -90deg;
+		}
+	}
+}

@@ -1,0 +1,55 @@
+@use '../scss/variables' as *;
+
+.testimonials-page {
+	padding: 7.5rem 0;
+
+	.headline {
+		margin: 0 auto;
+		max-width: 504px;
+		text-align: center;
+	}
+
+	.slider__prev,
+	.slider__next {
+		display: none;
+	}
+
+	.slick-slide > div {
+		margin-bottom: 60px;
+	}
+
+	.slick-slide > div:last-child {
+		margin-bottom: 0;
+	}
+}
+
+@media (width >= 400px) {
+	.testimonials-page .headline {
+		width: 87%;
+	}
+}
+
+@media (width >= 540px) {
+	.testimonials-page .headline {
+		width: 70%;
+	}
+}
+
+@media (width >= 740px) {
+	.testimonials-page .headline {
+		width: 56%;
+	}
+}
+
+@media (width >= 48rem) {
+	.testimonials-page {
+		padding: 7.5rem 0 10rem;
+	}
+}
+
+@media (width >= 64rem) {
+	.testimonials-page .headline {
+		width: 46%;
+		max-width: 504px;
+	}
+}

@@ -1,0 +1,115 @@
+@use '../scss/variables' as *;
+
+.btn-read {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.6rem;
+	background: none;
+	color: $c-white;
+	font-size: clamp(0.875rem, 0.1477rem + 3.6364vw, 1rem);
+	font-weight: $fw-bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+
+	span {
+		text-underline-offset: 2px;
+		transition: color 0.3s;
+	}
+
+	svg {
+		transition:
+			transform 0.3s,
+			fill 0.3s;
+	}
+
+	&:hover,
+	&:active {
+		span {
+			color: $c-yellow;
+		}
+
+		svg {
+			transform: translateX(10px);
+			fill: $c-yellow;
+		}
+	}
+
+	&--yellow {
+		color: $c-yellow;
+
+		svg {
+			fill: $c-yellow;
+		}
+
+		&:hover,
+		&:active {
+			svg {
+				fill: $c-yellow-hover;
+			}
+
+			span {
+				color: $c-yellow-hover;
+			}
+		}
+	}
+
+	&--grey {
+		color: $c-sub-text;
+
+		svg {
+			fill: $c-sub-text;
+		}
+
+		&:hover,
+		&:active {
+			svg {
+				fill: $c-sub-text-200;
+			}
+
+			span {
+				color: $c-sub-text-200;
+			}
+		}
+	}
+
+	&--dark-blue {
+		color: $c-very-dark-blue;
+
+		svg {
+			fill: $c-very-dark-blue;
+		}
+
+		&:hover,
+		&:active {
+			svg {
+				fill: $c-very-dark-blue-hover;
+			}
+
+			span {
+				color: $c-very-dark-blue-hover;
+			}
+		}
+	}
+}
+
+//375px
+@media (width >= 23.438rem) {
+	.btn-read {
+		font-size: $fs-16;
+	}
+}
+
+//768px
+@media (width >= 48rem) {
+	.btn-read {
+		font-size: clamp($fs-14, 0.5rem + 0.7813vw, $fs-16);
+	}
+}
+
+//1200px
+@media (width >= 75rem) {
+	.btn-read {
+		font-size: clamp($fs-14, 0.4286rem + 0.5952vw, $fs-16);
+	}
+}

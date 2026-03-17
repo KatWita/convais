@@ -1,0 +1,38 @@
+@use '../scss/variables' as *;
+
+.footer {
+	&__links {
+		margin-top: 1.5em;
+		list-style: none;
+
+		li {
+			display: block;
+			margin-bottom: 1.15rem;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__link {
+		display: inline-block;
+		color: $c-gray-100;
+		font-size: $fs-16;
+		font-weight: $fw-semi-bold;
+		font-family: $ff-dm-sans;
+		text-decoration: none;
+		transition:
+			transform 0.3s,
+			color 0.3s;
+
+		&:hover {
+			color: $c-yellow;
+			transform: translateX(10px);
+		}
+
+		span {
+			margin-right: 0.7rem;
+		}
+	}
+}

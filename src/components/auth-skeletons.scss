@@ -1,0 +1,82 @@
+@use '../scss/variables' as *;
+
+.skeleton {
+	display: flex;
+	flex-direction: column;
+	justify-self: center;
+	padding: 32px 40px;
+	width: 450px;
+	max-width: 100%;
+	border-radius: $br-20;
+	background-color: rgba(255, 255, 255, 0.03);
+	z-index: 2;
+
+	&--login {
+		height: 490px;
+	}
+
+	&--signup {
+		height: 691px;
+	}
+
+	&__item {
+		background: linear-gradient(
+			90deg,
+			rgba(255, 255, 255, 0.05) 25%,
+			rgba(255, 255, 255, 0.1) 50%,
+			rgba(255, 255, 255, 0.05) 75%
+		);
+		background-size: 200% 100%;
+		animation: shimmer 1.5s infinite;
+
+		&--primary {
+			background: linear-gradient(
+				90deg,
+				rgba(190, 247, 74, 0.1) 25%,
+				rgba(190, 247, 74, 0.2) 50%,
+				rgba(190, 247, 74, 0.1) 75%
+			);
+			background-size: 200% 100%;
+		}
+	}
+
+	&__small-inputs,
+	&__small-input-label,
+	&__bottom-text {
+		display: flex;
+	}
+
+	&__small-inputs,
+	&__bottom-text {
+		align-items: center;
+	}
+
+	&__small-inputs {
+		gap: 1rem;
+		margin-bottom: 24px;
+	}
+
+	&__small-input {
+		width: 100%;
+	}
+
+	&__small-input-label {
+		align-items: flex-end;
+		justify-content: space-between;
+		margin-bottom: 0.7rem;
+	}
+
+	&__bottom-text {
+		justify-content: center;
+		gap: 0.6rem;
+	}
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: 200% 0;
+	}
+	100% {
+		background-position: -200% 0;
+	}
+}

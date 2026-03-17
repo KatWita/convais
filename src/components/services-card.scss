@@ -1,0 +1,384 @@
+@use '../scss/variables' as *;
+
+.services {
+	.card,
+	.card__top,
+	.card__bottom {
+		position: relative;
+	}
+
+	.card {
+		overflow: hidden;
+
+		&__top {
+			height: auto;
+			max-width: 424px;
+		}
+
+		&__img {
+			width: 100%;
+			height: 68.5vw;
+			max-height: 310px;
+			object-fit: cover;
+			-webkit-mask-image: url('/images/services/services-mask.png');
+			mask-image: url('/images/services/services-mask.png');
+			-webkit-mask-repeat: no-repeat;
+			mask-repeat: no-repeat;
+			mask-size: 100% 100%;
+		}
+
+		&:nth-of-type(3) {
+			.card__img {
+				width: 100%;
+			}
+		}
+
+		&__icon {
+			position: absolute;
+		}
+
+		&__icon {
+			bottom: 10px;
+			right: 10px;
+			display: grid;
+			place-content: center;
+			width: 15vw;
+			height: 15vw;
+			max-width: 75px;
+			max-height: 75px;
+			border-radius: 50%;
+			background-color: $c-yellow;
+			color: $c-blackish;
+
+			&-img {
+				margin: 0 auto;
+				width: 10vw;
+				max-width: 45px;
+			}
+		}
+
+		&__bottom {
+			bottom: 15px;
+			max-width: 424px;
+			-webkit-mask-image: url('/images/services/services-box.png');
+			mask-image: url('/images/services/services-box.png');
+			-webkit-mask-repeat: no-repeat;
+			mask-repeat: no-repeat;
+			mask-size: 100% 100%;
+		}
+
+		&__box {
+			width: 100%;
+
+			&--border {
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				transition: opacity 0.3s;
+			}
+		}
+
+		&__content {
+			display: flex;
+			align-items: center;
+			position: absolute;
+			inset: 0;
+			flex-direction: column;
+			padding-top: 0.625rem;
+			text-align: center;
+		}
+
+		&__title {
+			max-width: 194px;
+			font-size: $fs-20;
+			line-height: $lh-h;
+		}
+
+		&__text {
+			margin: 0.5rem 0;
+			max-width: 300px;
+			color: $c-gray-200;
+			font-size: $fs-14;
+			font-family: $ff-dm-sans;
+			line-height: $lh-p;
+		}
+
+		&__num-bg {
+			position: absolute;
+			bottom: -10%;
+			left: -4%;
+			color: hsla(0, 0%, 100%, 0.05);
+			font-size: clamp($fs-60, -0.6944rem + 22.2222vw, $fs-100);
+			font-weight: $fw-bolder;
+		}
+	}
+}
+
+//360px
+@media (width >= 22.5rem) {
+	.services .card {
+		&__content {
+			padding-top: min(22px, 5.2%);
+		}
+
+		&__text {
+			margin: 0.938rem 0 1rem;
+		}
+	}
+}
+
+//375px
+@media (width >= 23.438rem) {
+	.services .card {
+		&__content {
+			bottom: 12%;
+		}
+
+		&__text {
+			font-size: $fs-16;
+			max-width: 343px;
+		}
+
+		&__num-bg {
+			bottom: -25%;
+		}
+	}
+}
+
+//412px
+@media (width >= 25.75rem) {
+	.services .card {
+		&__content {
+			bottom: 10%;
+		}
+
+		&__title {
+			max-width: 231px;
+			font-size: $fs-22;
+		}
+
+		&:last-child .card__title {
+			max-width: 214px;
+		}
+
+		&__text {
+			margin: 0.8rem 0;
+		}
+
+		&__icon {
+			width: 15.05vw;
+			height: 15.05vw;
+		}
+
+		&__num-bg {
+			bottom: -24%;
+		}
+	}
+}
+
+//450px
+@media (width >= 28.125rem) {
+	.services .card {
+		&__text {
+			margin: 0.938rem 0 1.3rem;
+		}
+
+		&__num-bg {
+			bottom: -25%;
+		}
+	}
+}
+
+//494px
+@media (width >= 30.875rem) {
+	.services .card {
+		&__title {
+			font-size: $fs-24;
+		}
+
+		&:last-child .card__title {
+			max-width: 231px;
+		}
+	}
+}
+
+//768px
+@media (width >= 48rem) {
+	.services .card {
+		&__img {
+			height: 29.85vw;
+		}
+
+		&__icon {
+			width: 6.52vw;
+			height: 6.52vw;
+
+			&-img {
+				width: 4.37vw;
+			}
+		}
+
+		&__title {
+			font-size: $fs-20;
+		}
+
+		&__title,
+		&:last-child .card__title {
+			max-width: 196px;
+		}
+
+		&__text {
+			margin: 0.7rem 0;
+			font-size: clamp($fs-14, 0.5rem + 0.7813vw, $fs-16);
+		}
+
+		&__num-bg {
+			bottom: -23%;
+			font-size: clamp($fs-60, -3.75rem + 15.625vw, $fs-100);
+		}
+	}
+}
+
+//890px
+@media (width >= 55.625rem) {
+	.services .card {
+		&__title {
+			font-size: $fs-22;
+		}
+
+		&__title,
+		&:last-child .card__title {
+			max-width: 213px;
+		}
+
+		&__text {
+			margin: 0.938rem 0 1rem;
+		}
+
+		&__num-bg {
+			bottom: -24%;
+		}
+	}
+}
+
+// 950px
+@media (width >= 59.375rem) {
+	.services .card__text {
+		margin: 0.938rem 0 1.3rem;
+	}
+}
+
+//1024px
+@media (width >= 64rem) {
+	.services .card {
+		&__box {
+			width: 100%;
+
+			&--border {
+				display: block;
+			}
+		}
+
+		&:hover .card__box--border {
+			opacity: 1;
+		}
+
+		&__title {
+			font-size: $fs-24;
+		}
+
+		&__title,
+		&:last-child .card__title {
+			max-width: 231px;
+		}
+
+		&__num-bg {
+			bottom: -25%;
+		}
+	}
+}
+
+//1200px
+@media (width >= 75rem) {
+	.services .card {
+		&__img {
+			height: 19.7vw;
+		}
+
+		&__icon {
+			width: 4.305vw;
+			height: 4.305vw;
+
+			&-img {
+				width: 2.888vw;
+			}
+		}
+
+		&__title {
+			font-size: $fs-20;
+		}
+
+		&__title,
+		&:last-child .card__title {
+			max-width: 196px;
+		}
+
+		&__text {
+			margin: 0.7rem 0;
+			font-size: clamp($fs-14, 0.4286rem + 0.5952vw, $fs-16);
+		}
+
+		&__num-bg {
+			bottom: -23%;
+			font-size: clamp($fs-64, -4.0357rem + 10.7143vw, $fs-100);
+		}
+	}
+}
+
+//1360px
+@media (width >= 85rem) {
+	.services .card {
+		&__title {
+			font-size: $fs-22;
+		}
+
+		&__title,
+		&:last-child .card__title {
+			max-width: 213px;
+		}
+
+		&__text {
+			margin: 0.938rem 0 1rem;
+		}
+
+		&__num-bg {
+			bottom: -24%;
+		}
+	}
+}
+
+//1420px
+@media (width >= 88.75rem) {
+	.services .card__text {
+		margin: 0.938rem 0 1.3rem;
+	}
+}
+
+//1536px
+@media (width >= 96rem) {
+	.services .card {
+		&__title {
+			font-size: $fs-24;
+		}
+
+		&__title,
+		&:last-child .card__title {
+			max-width: 231px;
+		}
+
+		&__num-bg {
+			bottom: -25%;
+		}
+	}
+}

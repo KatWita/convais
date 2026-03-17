@@ -1,0 +1,99 @@
+@use '../../../scss/variables' as *;
+
+.sub-header {
+	position: relative;
+	padding: 7.5rem 0;
+	background-image: url('/images/header/sub-header-bg.jpg');
+	background-position: left 30%;
+	background-size: cover;
+	height: 600px;
+
+	&::before {
+		position: absolute;
+		content: '';
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 500px;
+		background: #191919;
+		background: linear-gradient(180deg, rgb(0, 0, 0) 14%, rgba(25, 25, 25, 0) 97%);
+	}
+
+	&__breadbox,
+	&__headline {
+		position: relative;
+		z-index: 1;
+	}
+	&__breadbox,
+	&__breadcrumbs {
+		display: flex;
+		align-items: center;
+	}
+
+	&__breadbox {
+		justify-content: start;
+		gap: 0.8rem;
+		margin-top: 170px;
+		width: fit-content;
+		height: 60px;
+		padding: 0 1.5rem;
+		font-family: $ff-dm-sans;
+		font-weight: $fw-semi-bold;
+		text-transform: uppercase;
+		background-color: hsl(0deg 0% 19.05% / 70%);
+		color: $c-white;
+		backdrop-filter: blur(4px);
+		border-radius: $br-80;
+	}
+
+	&__line {
+		display: block;
+		width: 30px;
+		height: 6px;
+		background-color: $c-yellow;
+		border-radius: $br-50;
+	}
+
+	&__link {
+		color: $c-white;
+		transition: color 0.3s;
+
+		&:hover {
+			color: $c-yellow;
+		}
+	}
+
+	&__breadcrumbs {
+		gap: 0.4rem;
+		font-size: clamp($fs-14, 0.8333rem + 0.2083vw, $fs-16);
+		font-size: clamp(0.75rem, 0.6667rem + 0.4167vw, 1rem);
+	}
+
+	&__headline {
+		text-transform: capitalize;
+		font-size: clamp($fs-40, 1.6667rem + 4.1667vw, $fs-80);
+		margin-top: 1.875rem;
+	}
+}
+
+@media (width >= 375px) {
+	.sub-header {
+		&__line {
+			width: 40px;
+		}
+
+		&__breadbox {
+			gap: 1.25rem;
+		}
+	}
+}
+
+//500px
+@media (width >= 31.25rem) {
+	.sub-header {
+		&__breadbox {
+			padding: 0 2.375rem;
+			gap: 1.25rem;
+		}
+	}
+}

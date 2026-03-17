@@ -1,0 +1,96 @@
+@use '../scss/variables' as *;
+
+.footer .gallery {
+	padding-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	min-height: 385px;
+
+	&__imgs {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.75rem;
+		margin-top: 1.5rem;
+		min-height: 279px;
+	}
+
+	&__img {
+		width: 105px;
+		height: 85px;
+		aspect-ratio: 105/85;
+		background-color: $c-blackish;
+		border-radius: $br-8;
+		cursor: pointer;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+			transition: transform 0.3s;
+		}
+	}
+}
+
+@media (width >= 377px) {
+	.footer .gallery {
+		min-height: 288px;
+
+		&__imgs {
+			min-height: 182px;
+		}
+	}
+}
+
+@media (width >= 637px) {
+	.footer .gallery {
+		min-height: 191px;
+
+		&__imgs {
+			min-height: 85px;
+		}
+	}
+}
+
+//1024px
+@media (width >= 64rem) {
+	.footer .gallery {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		gap: 6rem;
+		padding-top: 3rem;
+		min-height: 133px;
+
+		.footer__headline {
+			margin: 0;
+			padding-top: 0.313rem;
+		}
+
+		&__imgs {
+			flex-wrap: unset;
+			margin-top: 0;
+		}
+
+		&__img img:hover {
+			transform: scale(1.08);
+		}
+	}
+}
+
+//1472px
+@media (width >= 92rem) {
+	.footer .gallery {
+		justify-content: end;
+		gap: 4.375rem;
+	}
+}
+
+//1536px
+@media (width >= 96rem) {
+	.footer .gallery {
+		gap: 5.438rem;
+	}
+}

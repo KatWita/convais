@@ -1,0 +1,80 @@
+@use '../scss/variables' as *;
+
+.all-services {
+	max-width: 800px;
+
+	&__services {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	&__btn {
+		position: relative;
+		padding: 2.5rem;
+		border: 2px solid $c-yellow;
+		border-radius: $br-10;
+		background: none;
+		background-color: $c-team-chart-bg;
+		font-size: clamp($fs-14, 0.2083rem + 3.3333vw, $fs-20);
+		font-weight: $fw-semi-bold;
+		text-align: center;
+	}
+
+	&__num {
+		position: absolute;
+		bottom: 0;
+		left: 10px;
+		color: $c-white;
+		font-size: $fs-32;
+		font-weight: $fw-bolder;
+	}
+}
+
+//540px
+@media (width >= 33.75rem) {
+	.all-services {
+		&__num {
+			left: 20px;
+			bottom: unset;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size: clamp($fs-40, -0.4605rem + 8.7719vw, $fs-60);
+			color: hsla(0, 0%, 100%, 0.4);
+		}
+	}
+}
+
+//768px
+@media (width >= 48rem) {
+	.all-services {
+		&__btn {
+			border-radius: $br-20;
+		}
+	}
+}
+
+@media (width >= 64rem) {
+	.all-services {
+		&__num {
+			transition: color 0.3s;
+		}
+
+		&__btn {
+			transition:
+				background-color 0.3s,
+				color 0.3s,
+				border-color 0.3s;
+
+			&:hover {
+				background-color: $c-very-dark-blue;
+				color: $c-white;
+				border-color: $c-social-bg;
+
+				.all-services__num {
+					color: hsla(0, 0%, 100%, 0.06);
+				}
+			}
+		}
+	}
+}

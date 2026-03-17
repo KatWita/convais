@@ -1,0 +1,31 @@
+@use '../scss/variables' as *;
+
+.callback {
+	.box-headline {
+		margin-bottom: 1.25rem;
+	}
+
+	&__text {
+		color: $c-sub-text;
+		font-family: $ff-dm-sans;
+		font-weight: $fw-medium;
+		line-height: $lh-p;
+	}
+
+	&__phone {
+		display: inline-block;
+		margin: 20px 0 30px;
+		font-size: $fs-20;
+		font-weight: $fw-semi-bold;
+	}
+}
+
+@media (width >= 64rem) {
+	.callback__phone {
+		transition: color 0.3s;
+
+		&:hover {
+			color: $c-very-dark-blue-hover;
+		}
+	}
+}

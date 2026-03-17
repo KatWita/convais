@@ -1,0 +1,180 @@
+@use '../scss/variables' as *;
+
+.slider-container {
+	padding: 4rem 0 0;
+
+	.slick-prev {
+		right: 0;
+	}
+
+	.slider__prev,
+	.slider__next {
+		display: none;
+	}
+
+	.slick-dots {
+		bottom: -6.25rem;
+		opacity: 0;
+		visibility: hidden;
+
+		li,
+		li .slider__dot::before,
+		li .slider__dot::after {
+			border-radius: 50%;
+		}
+
+		li,
+		.slider__dot::before {
+			width: 17px;
+			height: 17px;
+		}
+
+		li {
+			position: relative;
+			margin-right: 1.563rem;
+
+			.slider__dot {
+				width: 100%;
+				height: 100%;
+
+				&::before,
+				&::after {
+					position: absolute;
+					content: '';
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+
+				&::before {
+					opacity: 1;
+					z-index: 1;
+					background-color: $c-white;
+				}
+
+				&::after {
+					width: 40px;
+					height: 40px;
+					background-color: $c-yellow;
+					opacity: 0;
+					z-index: 0;
+					transition: opacity 0.3s;
+				}
+			}
+		}
+		.slick-active .slider__dot::after {
+			opacity: 1;
+		}
+	}
+
+	.slick-slide > div {
+		display: flex;
+		justify-content: center;
+		margin: 0 0.688rem;
+	}
+
+	.slick-list {
+		margin: 0 -0.625rem;
+	}
+
+	&--light {
+		.slick-dots li .slider__dot::before {
+			background-color: $c-dot-light;
+		}
+
+		.slick-dots .slick-active .slider__dot::before {
+			background-color: $c-white;
+		}
+	}
+}
+
+//768px
+@media (width >= 48rem) {
+	.slider-container {
+		padding: 3rem 0 4rem;
+
+		.slider__prev,
+		.slider__next {
+			position: absolute;
+			top: calc(-60px - 3rem - 21px - 2.4vw);
+			right: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 0 auto;
+			width: 80px;
+			height: 60px;
+			border-radius: $br-15;
+
+			img {
+				width: 1.818rem;
+				scale: 0.86;
+			}
+		}
+
+		.slider__prev {
+			background-color: $c-white;
+
+			img {
+				rotate: 180deg;
+			}
+		}
+
+		.slider__next {
+			right: 5rem;
+			background-color: $c-yellow;
+		}
+
+		.slick-dots {
+			bottom: -6.25rem;
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+//1024px
+@media (width >= 64rem) {
+	.slider-container {
+		.slider__prev img,
+		.slider__next img {
+			transition: scale 0.3s;
+		}
+
+		.slider__prev:hover img,
+		.slider__next:hover img {
+			scale: 1;
+		}
+	}
+}
+
+//1200px
+@media (width >= 75rem) {
+	.slider-container {
+		.slider__prev,
+		.slider__next {
+			width: 90px;
+			height: 65px;
+		}
+
+		.slider__next {
+			right: 5.625rem;
+		}
+	}
+}
+
+//1536px
+@media (width >= 96rem) {
+	.slider-container {
+		.slider__prev,
+		.slider__next {
+			width: 100px;
+			height: 70px;
+			top: calc(-60px - 3rem - 21px - 2.5vw);
+		}
+
+		.slider__next {
+			right: 6.25rem;
+		}
+	}
+}

@@ -1,0 +1,81 @@
+@use '../scss/variables' as *;
+
+.scrollTop {
+	position: fixed;
+	display: none;
+	bottom: 20px;
+	right: 20px;
+	height: 55px;
+	width: 55px;
+	border-radius: $br-50;
+	background-color: $c-dark-gray;
+	overflow: hidden;
+	cursor: pointer;
+	z-index: 999;
+	transition: transform 0.5s ease;
+
+	&:hover {
+		transform: translateY(-15%);
+	}
+
+	&.progress {
+		display: block;
+	}
+
+	.arrow {
+		position: absolute;
+		left: 0;
+		top: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		color: #ffffff;
+		font-size: 28px;
+		z-index: 3;
+	}
+
+	.water {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		transform: translateY(100%);
+		background-color: $c-yellow;
+		z-index: 2;
+		transition: all 0.3s;
+
+		&_wave {
+			position: absolute;
+			bottom: 100%;
+			width: 200%;
+
+			&_front {
+				margin-bottom: -1px;
+				left: 0;
+				fill: $c-yellow;
+				animation: wave-front 0.7s infinite linear;
+			}
+
+			&_back {
+				right: 0;
+				fill: $c-yellow;
+				animation: wave-back 1.4s infinite linear;
+			}
+		}
+	}
+}
+
+@keyframes wave-front {
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+@keyframes wave-back {
+	100% {
+		transform: translateX(50%);
+	}
+}

@@ -1,0 +1,101 @@
+@use '../scss/variables' as *;
+
+.member {
+	position: relative;
+	margin: 0 auto;
+	max-height: 350px;
+	max-width: 312px;
+
+	&__name,
+	&__job,
+	&__socials {
+		position: absolute;
+	}
+
+	&__name {
+		top: -1%;
+		left: 0;
+		font-size: clamp($fs-20, 0.8056rem + 2.2222vw, $fs-24);
+		font-weight: $fw-bold;
+		z-index: 1;
+	}
+
+	&__img {
+		width: 100%;
+		-webkit-mask-image: url('/images/team/team-mask.png');
+		mask-image: url('/images/team/team-mask.png');
+		mask-size: cover;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+	}
+
+	&__job {
+		bottom: 3em;
+		right: 0.8em;
+		display: inline-block;
+		padding: 0.78em 1.6em;
+		border-radius: $br-pill;
+		background-color: $c-white;
+		color: $c-gray-200;
+		font-size: $fs-14;
+		font-family: $ff-dm-sans;
+		text-transform: uppercase;
+	}
+
+	&__socials {
+		bottom: -1.45rem;
+		left: 1.8rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 1.9rem;
+		padding: 1.2rem 0.9rem;
+		padding: min(1.2rem, 10%);
+		width: min(86px, 13.017%);
+		border-radius: $br-10;
+		background-color: $c-yellow;
+		transform: rotate(15deg);
+
+		svg {
+			display: block;
+			transition: scale 0.3s;
+			scale: 1.25;
+		}
+	}
+}
+
+//440px
+@media (width >= 27.5rem) {
+	.member__name {
+		top: -2%;
+	}
+}
+
+//1024px
+@media (width >= 64rem) {
+	.member {
+		&__socials {
+			gap: 1.125em;
+			transform: unset;
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.3s;
+
+			a:hover svg {
+				scale: 1.5;
+			}
+		}
+
+		&:hover {
+			cursor: pointer;
+
+			.member__socials {
+				opacity: 1;
+				visibility: visible;
+				transform: rotate(15deg);
+				cursor: default;
+			}
+		}
+	}
+}

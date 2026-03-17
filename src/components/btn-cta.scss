@@ -1,0 +1,142 @@
+@use '../scss/variables' as *;
+
+.btn-cta {
+	padding: 0 1.67rem;
+	height: 52px;
+	line-height: 52px;
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	font-size: clamp($fs-14, 0.8182rem + 0.2841vw, $fs-16);
+	border-radius: 999px;
+	font-weight: $fw-bold;
+	position: relative;
+
+	&__arrow {
+		transition:
+			opacity 0.4s 0.25s,
+			transform 0.6s 0.25s;
+	}
+
+	&__arrow--left {
+		display: inline-block;
+		opacity: 0;
+		transform: translateX(-10px);
+		transition-delay: 0s;
+	}
+
+	&__label {
+		margin-inline-start: -23px;
+		-webkit-margin-start: -23px;
+		transition: transform 0.6s 0.125s cubic-bezier(0.1, 0.75, 0.25, 1);
+	}
+
+	&__arrow--right {
+		transition-timing-function: cubic-bezier(0.1, 0.75, 0.25, 1);
+	}
+
+	&:hover,
+	&:active {
+		.btn-cta__label {
+			transform: translateX(23px);
+			transition-delay: 0.1s;
+		}
+
+		.btn-cta__arrow {
+			&--left {
+				opacity: 1;
+				transform: translateX(0);
+				transition-delay: 0.225s;
+			}
+
+			&--right {
+				opacity: 0;
+				transform: translateX(10px);
+				transition-delay: 0s;
+			}
+		}
+	}
+
+	&:disabled {
+		display: grid;
+		justify-content: center;
+		width: 196px;
+		height: 60px;
+		max-width: 196px;
+		cursor: not-allowed;
+		pointer-events: none;
+		opacity: 0.7;
+
+		.btn-cta__label {
+			width: 100%;
+			justify-self: center;
+		}
+
+		.btn-cta__arrow {
+			display: none;
+		}
+	}
+
+	&--grey {
+		background-color: $c-dark-gray;
+		color: $c-white;
+
+		svg {
+			fill: $c-white;
+		}
+	}
+
+	&--grey-light {
+		background-color: $c-btn-grey-light-bg;
+		color: $c-white;
+
+		svg {
+			fill: $c-white;
+		}
+	}
+
+	&--white,
+	&--white-border {
+		color: $c-very-dark-blue;
+
+		svg {
+			fill: $c-very-dark-blue;
+		}
+	}
+
+	&--white {
+		background-color: $c-white;
+	}
+
+	&--white-border {
+		background-color: $c-team-chart-bg;
+		border: 1px solid $c-team-chart-border;
+	}
+
+	&--light {
+		background-color: $c-team-chart-bg;
+		color: $c-very-dark-blue;
+		border: 1px solid hsla(206, 19%, 7%, 0.1);
+
+		svg {
+			fill: $c-very-dark-blue;
+		}
+	}
+
+	&--yellow {
+		background-color: $c-yellow;
+		color: $c-very-dark-blue;
+
+		svg {
+			fill: $c-very-dark-blue;
+		}
+	}
+}
+
+//768px
+@media (width >= 48rem) {
+	.btn-cta {
+		height: 60px;
+		line-height: 60px;
+	}
+}

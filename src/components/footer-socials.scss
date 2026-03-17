@@ -1,0 +1,30 @@
+@use '../scss/variables' as *;
+
+.footer {
+	&__socials {
+		display: flex;
+		gap: 0.625rem;
+	}
+
+	&__social-icon {
+		display: grid;
+		place-content: center;
+		width: 42px;
+		height: 42px;
+		border-radius: $br-8;
+		background-color: $c-social-bg;
+		transition: background-color 0.3s;
+
+		&:hover {
+			background-color: $c-yellow;
+
+			svg {
+				fill: $c-social-bg;
+			}
+		}
+
+		svg {
+			transition: fill 0.3s;
+		}
+	}
+}

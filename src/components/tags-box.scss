@@ -1,0 +1,14 @@
+@use '../scss/variables' as *;
+
+.tags-box {
+	.box-headline {
+		margin-bottom: 1.25rem;
+	}
+
+	&__tags {
+		display: flex;
+		align-items: center;
+		gap: 0.625rem;
+		flex-wrap: wrap;
+	}
+}

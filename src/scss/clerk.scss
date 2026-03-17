@@ -1,0 +1,265 @@
+@use './variables' as *;
+
+body.cl-modalOpen {
+	overflow: auto !important;
+	padding-right: 0 !important;
+}
+
+.nav-transitioning .cl-userButtonPopoverCard,
+.nav-transitioning .cl-userButtonPopoverRootBox {
+	display: none !important;
+}
+
+.scroll-nav-active .cl-userButtonPopoverCard {
+	position: fixed !important;
+	top: 81.59px !important;
+	right: 20px !important;
+}
+
+.auth {
+	display: flex;
+	justify-content: center;
+	margin-top: 1rem;
+
+	&__cont {
+		position: relative;
+		min-height: 580px;
+	}
+}
+
+.cl {
+	// /login i /signup route
+	&-rootBox,
+	&-cardBox,
+	&-root,
+	&-signIn-root,
+	&-signUp-root {
+		margin: 0 auto;
+	}
+
+	&-root,
+	&-signIn-root,
+	&-signUp-root {
+		width: 100% !important;
+		max-width: 450px !important;
+
+		.cl-cardBox,
+		.cl-card,
+		.cl-main {
+			width: 100% !important;
+			max-width: 450px !important;
+			flex-grow: 1;
+		}
+	}
+
+	&-userProfile-root {
+		width: 100% !important;
+		max-width: 400px !important;
+		margin: 0 auto;
+
+		.cl-footer {
+			padding-bottom: 0;
+		}
+
+		.cl-cardBox,
+		.cl-card {
+			width: 100% !important;
+			max-width: 100% !important;
+		}
+	}
+
+	&-card {
+		padding: 2rem 1.5rem;
+	}
+
+	&-main {
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&-headerTitle {
+		color: $c-white;
+		font-size: $fs-22;
+		font-weight: $fw-bold;
+	}
+
+	&-headerSubtitle,
+	&-dividerText,
+	&-formFieldInput {
+		color: $c-gray-100;
+		font-family: $ff-dm-sans;
+	}
+
+	&-headerSubtitle {
+		margin-top: 0.5rem;
+		font-size: $fs-15;
+	}
+
+	&-socialButtonsBlockButton {
+		height: 40px;
+		min-height: 40px;
+		border: 1px solid $c-yellow !important;
+		background-color: hsla(0, 0%, 13%, 0.5);
+		color: $c-yellow;
+		transition:
+			color 0.3s,
+			background-color 0.3s;
+
+		&:hover {
+			background-color: $c-yellow;
+			color: $c-very-dark-blue;
+		}
+	}
+
+	&-dividerText {
+		font-size: $fs-14;
+	}
+
+	&-form {
+		gap: 1.5rem;
+	}
+
+	&-formFieldLabel {
+		color: $c-white;
+		font-size: $fs-15;
+	}
+
+	&-formFieldInput {
+		display: flex;
+		align-items: center;
+		height: 48px;
+		min-height: 48px;
+		padding: 0 1rem;
+		border-radius: $br-8;
+		background-color: $c-email-input;
+
+		&:focus {
+			box-shadow: 0 0 0 2px rgba(190, 247, 74, 0.2);
+		}
+	}
+
+	&-formButtonPrimary {
+		display: flex;
+		align-items: center;
+		height: 40px;
+		min-height: 40px;
+		background-color: $c-yellow;
+		color: $c-very-dark-blue;
+		font-size: $fs-14;
+		text-transform: none;
+		transition: background-color 0.3s;
+
+		&:hover {
+			background-color: $c-yellow-hover;
+		}
+	}
+
+	&-footer {
+		padding-bottom: 2rem;
+	}
+
+	&-internal-l2l775,
+	&-internal-1dauvpw {
+		display: none;
+	}
+
+	// modal
+	&-modalBackdrop {
+		align-items: center !important; // zamiast flex-start
+		background-color: $c-nav-on-scroll !important;
+	}
+
+	// popover
+	&-avatarBox {
+		width: 40px;
+		height: 40px;
+	}
+
+	&-userButtonPopoverMain {
+		background-color: $c-nav-on-scroll !important;
+	}
+
+	&-userButtonPopoverCard {
+		top: calc(1.563rem + 69.59px) !important;
+		max-width: 250px !important;
+		transition: none !important;
+	}
+
+	&-popoverBox {
+		transform: none !important;
+		box-shadow: 0 0 5px 1px rgba(41, 41, 41, 0.356);
+	}
+
+	&-userButtonPopoverCard {
+		backdrop-filter: blur(10px);
+	}
+
+	&-userButtonPopoverActionButton {
+		color: $c-white;
+		transition:
+			color 0.3s,
+			background-color 0.3s;
+
+		&:hover {
+			background-color: $c-yellow-transp;
+			color: $c-yellow;
+		}
+	}
+
+	&-userButtonPopoverFooter {
+		display: none;
+	}
+
+	&-internal-15hkgn2 {
+		background: repeating-linear-gradient(
+			-45deg,
+			color-mix(in srgb, transparent, var(--clerk-color-warning, $c-yellow) 7%),
+			color-mix(in srgb, transparent, var(--clerk-color-warning, $c-yellow) 7%) 6px,
+			color-mix(in srgb, transparent, var(--clerk-color-warning, $c-yellow) 11%) 6px,
+			color-mix(in srgb, transparent, var(--clerk-color-warning, $c-yellow) 11%) 12px
+		);
+	}
+}
+
+//412px
+@media (width >= 25.75rem) {
+	.cl-modalContent {
+		width: 86vw !important;
+	}
+}
+
+//540px
+@media (width >= 33.75rem) {
+	.auth {
+		margin-top: 3rem;
+	}
+
+	.cl-card {
+		padding: 2rem 2.5rem;
+	}
+}
+
+//768px
+@media (width >= 48rem) {
+	.auth {
+		margin-top: 5rem;
+	}
+
+	.cl-userProfile-root {
+		max-width: 600px !important;
+	}
+}
+
+@media (width > 996px) {
+	.cl-userProfile-root {
+		max-width: 800px !important;
+	}
+}
+
+//1064px
+@media (width >= 64rem) {
+	.auth {
+		margin-top: 6rem;
+	}
+}

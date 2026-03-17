@@ -1,0 +1,45 @@
+@use '../scss/variables' as *;
+
+.blog-page {
+	&__right {
+		display: none;
+	}
+
+	&__left {
+		margin: 0 auto;
+	}
+
+	&__blogs {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+		max-width: 872px;
+		margin: 0 auto;
+	}
+
+	&__no-results {
+		padding: 2rem 0;
+		color: $c-sub-text;
+		font-size: clamp($fs-14, 0.6932rem + 0.9091vw, $fs-16);
+		font-family: $ff-dm-sans;
+		font-weight: $fw-medium;
+	}
+}
+
+@media (width >= 80rem) {
+	.blog-page {
+		display: flex;
+		flex-direction: row-reverse;
+		gap: 1.5rem;
+
+		&__right {
+			display: flex;
+			flex-direction: column;
+			gap: 1.875rem;
+		}
+
+		&__blogs {
+			margin: 0;
+		}
+	}
+}

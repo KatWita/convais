@@ -1,0 +1,94 @@
+@use '../scss/variables' as *;
+
+.privacy {
+	display: flex;
+	justify-content: center;
+
+	&__text,
+	li {
+		font-family: $ff-dm-sans;
+		color: $c-very-dark-blue;
+		font-weight: $fw-medium;
+		color: $c-sub-text;
+	}
+
+	&__card {
+		width: 100%;
+		max-width: 800px;
+		border-radius: $br-8;
+		background-color: $c-white;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+		overflow: hidden;
+	}
+
+	&__header {
+		background-color: $c-very-dark-blue;
+		color: $c-white;
+		padding: 2.5rem;
+		font-size: $fs-24;
+		font-weight: $fw-semi-bold;
+	}
+
+	&__date {
+		color: $c-gray-100;
+		font-size: 0.85rem;
+	}
+
+	&__body {
+		padding: 2.5rem;
+		line-height: $lh-p;
+	}
+
+	&__text {
+		margin-bottom: 1.875rem;
+	}
+
+	&__section {
+		margin-bottom: 1.875rem;
+		padding-bottom: 1.25rem;
+		border-bottom: 1px solid #edf2f7;
+
+		&:last-of-type {
+			border-bottom: none;
+		}
+
+		h2 {
+			margin-bottom: 0.938rem;
+			font-size: $fs-22;
+		}
+
+		li {
+			margin-bottom: 0.625rem;
+		}
+	}
+
+	&__contact {
+		margin-top: 2.5rem;
+		padding: 1.25rem;
+		border: 1px solid $c-team-chart-border;
+		border-radius: $br-6;
+		background-color: $c-team-chart-bg;
+
+		a {
+			font-weight: $fw-bold;
+			text-decoration: underline;
+		}
+	}
+
+	&__footer {
+		padding: 1.25rem;
+		color: $c-copy;
+		font-size: $fs-12;
+		text-align: center;
+	}
+}
+
+@media (width >= 64rem) {
+	.privacy__contact a {
+		transition: all 0.3s;
+
+		&:hover {
+			color: $c-very-dark-blue-hover;
+		}
+	}
+}

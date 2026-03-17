@@ -1,0 +1,160 @@
+@use '../scss/variables' as *;
+
+.service-d-page {
+	&__right {
+		display: none;
+	}
+
+	&__left {
+		display: flex;
+		flex-direction: column;
+		margin: 0 auto;
+		max-width: 872px;
+	}
+
+	.acc,
+	.list,
+	&__text,
+	&__docs {
+		margin-top: 1.875rem;
+	}
+
+	.list,
+	&__text {
+		color: $c-sub-text;
+		font-weight: $fw-medium;
+		line-height: $lh-p;
+	}
+
+	&__text,
+	.list {
+		font-size: clamp($fs-14, 0.6528rem + 1.1111vw, $fs-16);
+		font-family: $ff-dm-sans;
+	}
+
+	&__text {
+		max-width: 792px;
+
+		&--desc {
+			margin-bottom: 1.875rem;
+		}
+	}
+
+	&__mistakes {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		.list {
+			align-self: start;
+			max-width: 400px;
+		}
+	}
+
+	&__mist-img {
+		width: 100%;
+		max-width: 400px;
+		max-height: 280px;
+		object-fit: cover;
+		border-radius: $br-20;
+	}
+
+	&__mistakes,
+	&__h4--mistakes,
+	&__documents {
+		margin-bottom: 1.875rem;
+	}
+
+	&__doc {
+		display: flex;
+		align-items: start;
+		gap: 1.563rem;
+		margin-bottom: 1.4rem;
+		max-width: 400px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		.service-d-page__text {
+			margin-top: 1.125rem;
+		}
+	}
+
+	&__doc-title {
+		margin-top: 0.3rem;
+		font-size: clamp($fs-15, 0.483rem + 2.2727vw, $fs-20);
+	}
+}
+
+//540px
+@media (width >= 33.75rem) {
+	.service-d-page {
+		.acc,
+		&__text--feature {
+			margin-top: 2.5rem;
+		}
+	}
+}
+
+@media (width >= 48rem) {
+	.service-d-page {
+		&__mistakes {
+			flex-direction: row;
+			gap: 1.3rem;
+
+			.list {
+				margin-top: 0.2rem;
+			}
+		}
+
+		&__mist-img {
+			width: 40%;
+		}
+
+		&__docs {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		&__doc {
+			max-width: 360px;
+		}
+	}
+}
+
+@media (width >= 64rem) {
+	.service-d-page {
+		&__mistakes {
+			flex-direction: row;
+			gap: 1.875rem;
+		}
+
+		&__mist-img {
+			width: 400px;
+		}
+	}
+}
+
+//1280px
+@media (width >= 80rem) {
+	.service-d-page {
+		display: flex;
+		flex-direction: row-reverse;
+		gap: 1.5rem;
+
+		&__right {
+			display: flex;
+			flex-direction: column;
+			gap: 1.875rem;
+			flex-shrink: 0;
+			width: clamp(353px, 32%, 420px);
+		}
+
+		&__left {
+			flex: 1;
+			margin: 0;
+			min-width: 0;
+		}
+	}
+}

@@ -1,0 +1,425 @@
+@use '../scss/variables' as *;
+
+.footer-box {
+	&--white {
+		background-color: $c-white;
+	}
+}
+
+.footer {
+	border-radius: $br-50 $br-50 0 0;
+	position: relative;
+	background-image: url('/images/footer/bottom-bg.png'), url('/images/footer/top-right-bg.png');
+	background-position:
+		bottom 68px left,
+		top right;
+	background-repeat: no-repeat, no-repeat;
+	background-size: 145%, 50%;
+	overflow: hidden;
+
+	&--no-bg {
+		background-color: $c-very-dark-blue;
+
+		.blur-bg--one,
+		.blur-bg--two {
+			display: none;
+		}
+	}
+
+	.container {
+		padding: 6.25rem 0 3rem;
+	}
+
+	&__logo {
+		width: 156px;
+	}
+
+	&__left {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 3.125rem;
+		margin: 0 auto;
+		padding: 2.188rem 1.5rem 2.188rem;
+		max-width: 424px;
+		border-radius: $br-30;
+		background-color: $c-dark-gray;
+	}
+
+	&__newsletter-box {
+		width: 100%;
+	}
+
+	&__newsletter-box,
+	&__input-box {
+		max-width: 326px;
+	}
+
+	&__text {
+		max-width: 276px;
+		margin: 1.875rem 0 0;
+		color: $c-gray-100;
+		font-family: $ff-dm-sans;
+		line-height: $lh-p;
+		font-weight: $fw-semi-bold;
+	}
+
+	&__input-box {
+		position: relative;
+		margin: 0.938rem 0 2.188rem;
+
+		&.error {
+			.footer__input {
+				border: 1px solid $c-error;
+
+				&:focus-visible {
+					border: 1px solid $c-error-focus;
+					outline: 1px solid $c-error-focus;
+				}
+			}
+		}
+	}
+
+	&__input {
+		padding: 0 1rem;
+		width: 100%;
+		height: 70px;
+		border: 1px solid transparent;
+		border-radius: 24px 100px 100px 24px;
+		background-color: $c-email-input;
+		color: $c-white;
+		font-size: $fs-14;
+		font-family: $ff-dm-sans;
+		font-weight: $fw-semi-bold;
+		transform: translateZ(0);
+		will-change: border-color;
+		transition: border-color 0.2s;
+
+		&:focus-visible {
+			border: 1px solid $c-yellow;
+			outline: 1px solid $c-yellow;
+			outline-offset: -1px;
+		}
+
+		&::placeholder {
+			color: $c-gray-100;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+
+		&-icon {
+			position: absolute;
+			top: 50%;
+			right: 7px;
+			transform: translateY(-50%);
+			display: grid;
+			place-content: center;
+			width: 58px;
+			height: 58px;
+			border-radius: 50%;
+			background-color: $c-yellow;
+			backface-visibility: hidden;
+
+			img {
+				transition: transform 0.3s;
+			}
+
+			&:hover img {
+				transform: scale(1.15);
+			}
+		}
+	}
+
+	&__error {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		bottom: -20px;
+		font-size: $fs-13;
+		color: $c-error;
+		font-weight: $fw-semi-bold;
+		opacity: 0;
+		visibility: hidden;
+		will-change: opacity;
+		-webkit-font-smoothing: antialiased;
+		line-height: 1;
+		transition:
+			opacity 0.2s,
+			visibility 0.2s;
+
+		&--visible {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	&__headline {
+		font-size: $fs-24;
+	}
+
+	&__underline {
+		display: flex;
+		align-items: center;
+		margin-top: 0.938rem;
+
+		&--circle {
+			width: 5px;
+			height: 5px;
+			border: 1px solid $c-yellow;
+			border-radius: 50%;
+		}
+
+		&--line {
+			width: 30px;
+			height: 1px;
+			background-color: $c-yellow;
+		}
+	}
+
+	&__right {
+		margin: 0 auto;
+		padding-top: 2.5rem;
+		width: 90vw;
+	}
+
+	&__link-box {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		justify-content: flex-start;
+		gap: 2.5rem;
+		padding-bottom: 2.5rem;
+		border-bottom: 1px solid $c-line;
+	}
+
+	&__office {
+		max-width: 213px;
+
+		&:first-of-type {
+			margin: 1.5rem 0 3rem;
+		}
+
+		&-name,
+		&-place {
+			font-weight: $fw-semi-bold;
+		}
+
+		&-name {
+			margin-bottom: 0.7rem;
+			color: $c-gray-100;
+			font-family: $ff-dm-sans;
+		}
+
+		&-place {
+			max-width: 267px;
+			font-size: $fs-18;
+			line-height: 160%;
+		}
+	}
+
+	&__copy {
+		padding: 1rem 0;
+		background-color: $c-dark-gray;
+		color: $c-copy;
+		font-family: $ff-dm-sans;
+		font-size: $fs-14;
+		font-weight: 500;
+		text-align: center;
+
+		p {
+			margin: 0 auto;
+			max-width: 270px;
+		}
+	}
+
+	.blur-bg {
+		&--one {
+			top: -30%;
+			left: -2%;
+		}
+
+		&--two {
+			bottom: -25%;
+			right: -20%;
+		}
+	}
+}
+
+//452px
+@media (width >= 28.25rem) {
+	.footer {
+		&__logo {
+			width: unset;
+		}
+
+		&__left {
+			padding: 2.188rem 2rem 2.188rem;
+		}
+
+		&__text {
+			max-width: 326px;
+		}
+
+		&__input {
+			padding: 0 1.8rem;
+			font-size: $fs-16;
+		}
+
+		&__link-box {
+			justify-content: space-evenly;
+		}
+	}
+}
+
+//540px
+@media (width >= 33.75rem) {
+	.footer {
+		background-position:
+			bottom 23px left,
+			top right;
+		background-size: 140%, 50%;
+
+		&__copy {
+			font-size: $fs-16;
+
+			p {
+				margin: 0;
+				max-width: unset;
+			}
+		}
+	}
+}
+
+//880px
+@media (width >= 55rem) {
+	.footer {
+		&__left {
+			justify-content: center;
+		}
+
+		&__link-box {
+			justify-content: space-between;
+		}
+
+		&__text {
+			max-width: 326px;
+		}
+
+		&__office {
+			max-width: unset;
+		}
+	}
+}
+
+//890px
+@media (width >= 55.625rem) {
+	.footer {
+		background-size: 120%, 45%;
+
+		&__left {
+			max-width: 800px;
+		}
+
+		.blur-bg {
+			&--one,
+			&--two {
+				width: 70%;
+				height: 70%;
+			}
+
+			&--one {
+				top: -20%;
+				left: -20%;
+			}
+		}
+	}
+}
+
+//1024px
+@media (width >= 64rem) {
+	.footer {
+		background-position:
+			bottom left -5px,
+			top right -10px;
+		background-size: 960px, 400px;
+
+		&__link-box {
+			justify-content: space-evenly;
+		}
+	}
+}
+
+//1420px
+@media (width >= 88.75rem) {
+	.footer__link-box {
+		padding: 0 0 2.5rem 0;
+	}
+}
+
+//1472px
+@media (width >= 92rem) {
+	.footer {
+		background-size: auto;
+
+		.container {
+			display: flex;
+			padding: 6.25rem 0;
+		}
+
+		&__left {
+			margin: 0;
+			padding: 2.188rem 3rem 2.188rem 2.438rem;
+			max-width: 424px;
+		}
+
+		&__right {
+			padding-top: 1.5rem;
+			width: 100%;
+		}
+
+		&__link-box {
+			flex-wrap: unset;
+			justify-content: end;
+			gap: 5rem;
+			padding: 0 0 2.5rem 3rem;
+		}
+
+		&__office {
+			width: 267px;
+		}
+
+		&__copy {
+			padding: 1.875rem 0;
+			text-align: center;
+		}
+
+		.blur-bg {
+			&--one,
+			&--two {
+				width: 80%;
+				height: 80%;
+			}
+		}
+	}
+}
+
+//1536px
+@media (width >= 96rem) {
+	.footer {
+		&__link-box {
+			gap: 5.625rem;
+		}
+
+		.blur-bg {
+			&--one {
+				top: -35%;
+				left: -30%;
+			}
+
+			&--two {
+				bottom: -35%;
+				right: -40%;
+			}
+		}
+	}
+}

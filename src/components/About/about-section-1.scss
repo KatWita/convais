@@ -1,0 +1,342 @@
+@use '../../scss/variables' as *;
+
+.about {
+	position: relative;
+	padding: 7.5rem 0;
+	overflow: hidden;
+
+	.headline,
+	&__text {
+		text-align: center;
+	}
+
+	.headline {
+		margin: 0 auto;
+		max-width: 400px;
+	}
+
+	&__text,
+	&__ceo-job,
+	&__check {
+		font-family: $ff-dm-sans;
+	}
+
+	&__text,
+	&__ceo-job {
+		color: $c-gray-200;
+	}
+
+	&__text,
+	&__check {
+		font-weight: $fw-medium;
+	}
+
+	&__stat,
+	&__check {
+		display: flex;
+	}
+
+	&__text {
+		margin: 2.063rem auto 2.5rem;
+		max-width: 532px;
+		line-height: $lh-p;
+	}
+
+	&__stat {
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		font-size: $fs-20;
+		font-weight: $fw-semi-bold;
+
+		&-img {
+			position: relative;
+			width: 80px;
+			height: 80px;
+		}
+
+		&-icon {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		&-label {
+			width: 197px;
+		}
+	}
+
+	&__sign-box {
+		margin: 3.125rem 0 2.5rem;
+	}
+
+	&__ceo {
+		margin: 0 auto 1rem;
+		padding-bottom: 1rem;
+		width: 212px;
+		border-bottom: 1px solid #848484;
+		text-align: right;
+
+		&-job {
+			font-size: $fs-14;
+			font-weight: $fw-bold;
+			text-transform: uppercase;
+		}
+	}
+
+	&__checks {
+		list-style: none;
+	}
+
+	&__check {
+		justify-content: center;
+		gap: 15px;
+		margin-bottom: 0.625rem;
+
+		p {
+			width: 233px;
+		}
+	}
+
+	.btn-cta {
+		margin: 0 auto;
+	}
+
+	&__img-box {
+		display: none;
+	}
+
+	.blur-bg {
+		right: -20%;
+		bottom: -20%;
+	}
+}
+
+//768px
+@media (width >= 48rem) {
+	.about {
+		.headline {
+			max-width: 450px;
+		}
+
+		&__stats,
+		&__sign-box {
+			display: flex;
+		}
+
+		&__stats {
+			gap: 1.875rem;
+		}
+
+		&__stats,
+		&__sign-box {
+			justify-content: center;
+		}
+
+		&__stat {
+			justify-content: start;
+			gap: 1.563rem;
+
+			&-label {
+				width: unset;
+			}
+		}
+
+		&__sign-box {
+			align-items: center;
+		}
+
+		&__ceo {
+			margin: 0;
+			padding: 0 2.5rem 0 0;
+			border-bottom: none;
+			border-right: 1px solid $c-border;
+		}
+
+		&__checks {
+			padding-left: 2.5rem;
+		}
+
+		&__check {
+			justify-content: start;
+		}
+	}
+}
+
+//1024px
+@media (width >= 64rem) {
+	.about {
+		.container {
+			display: flex;
+			justify-content: center;
+		}
+
+		&__content {
+			max-width: 560px;
+		}
+
+		.headline {
+			max-width: 500px;
+		}
+	}
+}
+
+//1280px
+@media (width >= 80rem) {
+	.about {
+		.container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 3rem;
+		}
+
+		.headline,
+		&__text {
+			text-align: left;
+		}
+
+		.headline {
+			max-width: 550px;
+		}
+
+		&__stats,
+		&__sign-box {
+			justify-content: start;
+		}
+
+		&__img-box {
+			position: relative;
+			display: block;
+			margin-top: 2rem;
+			width: 50%;
+			max-width: 680px;
+			max-height: 410px;
+		}
+
+		&__img-border,
+		&__seal,
+		&__seal-logo-box {
+			position: absolute;
+		}
+
+		&__img {
+			width: 140%;
+			object-fit: cover;
+			object-position: -180px 0;
+			-webkit-mask-image: url('/images/about/right-img-mask.png');
+			-webkit-mask-repeat: no-repeat;
+			mask-image: url('/images/about/right-img-mask.png');
+			mask-repeat: no-repeat;
+			mask-size: 74%;
+
+			&-border {
+				width: 105%;
+				top: -48px;
+				left: -41px;
+			}
+		}
+
+		&__seal {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			top: 22%;
+			left: -2%;
+			width: 140px;
+			height: 140px;
+			border-radius: 50%;
+			background-color: $c-dark-gray;
+
+			&-text {
+				width: 100%;
+				height: 100%;
+				animation: spinText 10s linear infinite;
+			}
+
+			&-logo-box {
+				display: grid;
+				place-content: center;
+				width: 62px;
+				height: 62px;
+				border-radius: 50%;
+				background-color: $c-yellow;
+			}
+
+			&-logo {
+				width: 25px;
+			}
+		}
+
+		.btn-cta {
+			margin: 0;
+		}
+
+		.blur-bg {
+			right: -30%;
+			bottom: -55%;
+		}
+	}
+}
+
+//1330px
+@media (width >= 83.125rem) {
+	.about {
+		&__seal {
+			left: 3%;
+			width: 150px;
+			height: 150px;
+		}
+
+		&-logo-box {
+			width: 66px;
+			height: 66px;
+		}
+
+		&-logo {
+			width: 28px;
+		}
+	}
+}
+
+//1440px
+@media (width >= 90rem) {
+	.about {
+		&__seal {
+			left: 6%;
+			width: 156px;
+			height: 156px;
+		}
+
+		&-logo-box {
+			width: 70px;
+			height: 70px;
+		}
+
+		&-logo {
+			width: 30px;
+		}
+	}
+}
+
+//1536px
+@media (width >= 96rem) {
+	.about {
+		.container {
+			align-items: unset;
+		}
+
+		&__seal {
+			top: 30%;
+			left: 6%;
+			width: 160px;
+			height: 160px;
+		}
+
+		&-logo-box {
+			width: 75px;
+			height: 75px;
+		}
+	}
+}

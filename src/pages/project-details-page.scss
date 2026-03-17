@@ -1,0 +1,271 @@
+@use '../scss/variables' as *;
+
+.project-details {
+	&__img-info-text,
+	&__text {
+		color: $c-sub-text;
+		font-family: $ff-dm-sans;
+	}
+
+	.medium,
+	.bold {
+		color: $c-very-dark-blue;
+	}
+
+	&__img-box,
+	&__img {
+		width: 100%;
+	}
+
+	&__img-box {
+		height: calc(90vw * 0.42);
+		overflow: hidden;
+	}
+
+	&__top {
+		position: relative;
+	}
+
+	&__img {
+		object-fit: cover;
+		-webkit-mask-image: url('/images/projects/project-details-img-mask.png');
+		-webkit-mask-repeat: no-repeat;
+		mask-image: url('/images/projects/project-details-img-mask.png');
+		mask-size: 100%;
+		mask-repeat: no-repeat;
+		height: 100%;
+
+		&.project {
+			&--one {
+				object-position: 0 -15vw;
+			}
+			&--two {
+				object-position: 0 -23vw;
+			}
+
+			&--three {
+				object-position: 0 -46vw;
+			}
+
+			&--four,
+			&--five {
+				object-position: 0 -10vw;
+			}
+		}
+
+		&-info {
+			position: absolute;
+			width: 100%;
+			bottom: -105px;
+			left: 50%;
+			transform: translateX(-50%);
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			gap: 0.3rem;
+			margin: 0 auto;
+			padding-bottom: 1rem;
+			border-bottom: 1px solid $c-blackish;
+
+			&-box {
+				display: flex;
+				gap: 0.5rem;
+			}
+
+			&-title {
+				font-family: $ff-urbanist;
+				text-transform: capitalize;
+			}
+
+			&-title,
+			&-text {
+				font-size: clamp($fs-14, 0.6932rem + 0.9091vw, $fs-16);
+			}
+		}
+	}
+
+	&__bottom {
+		margin-top: calc(9rem - 10px);
+	}
+
+	&__text {
+		line-height: $lh-p;
+
+		&.medium {
+			margin: 1.2rem 0;
+		}
+	}
+
+	.list {
+		margin: 2rem 0 1.2rem;
+
+		&__elem {
+			font-family: $ff-dm-sans;
+			line-height: $lh-p;
+		}
+	}
+
+	.page-buttons {
+		margin-top: 4.375rem;
+	}
+}
+
+//412px
+@media (width >= 25.75rem) {
+	.project-details__img-box {
+		height: calc(86vw * 0.398);
+	}
+}
+
+//540px
+@media (width >= 33.75rem) {
+	.project-details {
+		&__img-info {
+			bottom: -100px;
+		}
+
+		&__bottom {
+			margin-top: calc(9rem - 15px);
+		}
+	}
+}
+
+//680px
+@media (width >= 42.5rem) {
+	.project-details {
+		&__img-info {
+			bottom: -80px;
+		}
+
+		&__bottom {
+			margin-top: calc(9rem - 35px);
+		}
+	}
+}
+
+//768px
+@media (width >= 48rem) {
+	.project-details {
+		&__img-info {
+			flex-direction: row;
+			align-items: start;
+			justify-content: space-between;
+			bottom: 3%;
+			padding: 0 8%;
+			border-bottom: none;
+		}
+
+		&__img-info-box {
+			flex-direction: column;
+			max-width: 80px;
+
+			&:nth-child(2) {
+				margin-right: 2rem;
+			}
+		}
+
+		&__img-info-title {
+			font-size: clamp($fs-16, 0.625rem + 0.7813vw, $fs-18);
+		}
+
+		&__img-info-text {
+			font-size: clamp($fs-14, 0.5rem + 0.7813vw, $fs-16);
+		}
+
+		&__bottom {
+			margin-top: 2rem;
+		}
+	}
+}
+
+//1024px
+@media (width >= 64rem) {
+	.project-details {
+		&__img-info {
+			bottom: 8%;
+			padding: 0 9%;
+		}
+
+		&__img-info-box {
+			max-width: unset;
+
+			&:nth-child(2) {
+				margin-right: 0;
+			}
+		}
+
+		&__img-info-title {
+			font-size: clamp($fs-18, 0.875rem + 0.3906vw, $fs-20);
+		}
+
+		&__img-info-text {
+			font-size: clamp($fs-14, 0.375rem + 0.7813vw, $fs-18);
+		}
+
+		&__img-box {
+			height: calc(86vw * 0.396);
+			max-height: 520px;
+		}
+	}
+}
+
+//1200px
+@media (width >= 75rem) {
+	.project-details__img-info {
+		bottom: 10%;
+	}
+}
+
+//1280px
+@media (width >= 80rem) {
+	.project-details {
+		&__img-info {
+			padding: 0 10%;
+		}
+
+		&__text.medium {
+			margin: 1.563rem 0;
+		}
+
+		.list {
+			margin: 0 0 1.875rem;
+
+			&__elem {
+				margin-bottom: 1rem;
+			}
+		}
+
+		&__bottom {
+			display: flex;
+			gap: 3.438rem;
+			margin-top: 3rem;
+		}
+	}
+}
+
+//1536px
+@media (width >= 96rem) {
+	.project-details {
+		&__img-box {
+			height: 520px;
+		}
+
+		&__img.project {
+			&--one {
+				object-position: 0 -220px;
+			}
+			&--two {
+				object-position: 0 -360px;
+			}
+
+			&--three {
+				object-position: 0 -700px;
+			}
+
+			&--four,
+			&--five {
+				object-position: 0 -160px;
+			}
+		}
+	}
+}

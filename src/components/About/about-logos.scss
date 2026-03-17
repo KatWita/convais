@@ -1,0 +1,97 @@
+@use '../../scss/variables' as *;
+
+.about-logos {
+	display: grid;
+	justify-items: center;
+	place-content: center;
+	align-items: end;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	gap: 2rem 1.5rem;
+
+	img {
+		width: 80px;
+
+		&:first-child {
+			width: 112px;
+		}
+		&:nth-of-type(4) {
+			width: 90px;
+			align-self: end;
+		}
+
+		&:last-child {
+			grid-column: 1/-1;
+			width: 100px;
+		}
+	}
+}
+
+@media (width >= 20rem) {
+	.about-logos {
+		grid-template-columns: repeat(2, 120px);
+	}
+}
+
+@media (width >= 30rem) {
+	.about-logos {
+		grid-template-columns: repeat(6, 48px);
+		grid-template-rows: repeat(2, 1fr);
+
+		img {
+			&:first-child {
+				grid-column: 1/3;
+			}
+
+			&:nth-child(2) {
+				grid-column: 3/5;
+			}
+
+			&:nth-child(3) {
+				grid-column: 5/-1;
+			}
+
+			&:nth-child(4) {
+				grid-row: 2/3;
+				grid-column: 2/4;
+			}
+
+			&:last-child {
+				grid-column: 4/6;
+			}
+		}
+	}
+}
+
+@media (width >= 33.75rem) {
+	.about-logos {
+		gap: 2rem 2rem;
+	}
+}
+
+@media (width >= 48rem) {
+	.about-logos {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+}
+
+@media (width >= 75rem) {
+	.about-logos {
+		img {
+			width: 100px;
+
+			&:first-child {
+				width: 140px;
+			}
+			&:nth-of-type(4) {
+				width: 110px;
+			}
+
+			&:last-child {
+				width: 120px;
+			}
+		}
+	}
+}

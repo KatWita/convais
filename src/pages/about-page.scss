@@ -1,0 +1,50 @@
+@use '../scss/variables' as *;
+
+.about {
+	&__fun-facts {
+		padding-bottom: 14rem;
+
+		.facts__stroke {
+			-webkit-text-stroke: 2px $c-yellow;
+			-webkit-text-fill-color: $c-white;
+		}
+	}
+
+	&__clients.clients {
+		padding: 7.5rem 0 calc(7.5rem + 44px);
+	}
+}
+
+@media (width >= 48rem) {
+	.about__clients {
+		.slider__prev {
+			-webkit-box-shadow: -1px 0px 17px -4px rgb(148 164 181);
+			-moz-box-shadow: -1px 0px 17px -4px rgb(148 164 181);
+			box-shadow: -1px 0px 17px -4px rgb(148 164 181);
+			right: 6px;
+		}
+		.slider__next {
+			right: calc(5rem + 6px);
+		}
+	}
+}
+
+@media (width >= 64rem) {
+	.about__fun-facts {
+		padding-bottom: 7.5rem;
+	}
+}
+
+//1200px
+@media (width >= 75rem) {
+	.about__clients .slider__next {
+		right: calc(5.625rem + 6px);
+	}
+}
+
+//1536px
+@media (width >= 96rem) {
+	.about__clients .slider__next {
+		right: calc(6.25rem + 6px);
+	}
+}

@@ -1,0 +1,169 @@
+@use '../scss/variables' as *;
+
+.nav-mobile {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99;
+
+	&__logo {
+		width: 140px;
+	}
+
+	&.on-scroll .nav-menu {
+		padding: 18px 0;
+		background-color: $c-nav-on-scroll;
+		backdrop-filter: blur(5px);
+		width: 100%;
+	}
+}
+
+.nav-menu {
+	padding: 25px 0;
+	transition: all 0.2s;
+}
+
+.nav-menu .container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.hamburger {
+	background: none;
+
+	&__bar {
+		margin-bottom: 6px;
+		width: 32px;
+		height: 2px;
+		background-color: rgb(255, 255, 255);
+		transition:
+			transform 0.3s ease-in-out,
+			opacity 0.2s ease-in-out;
+	}
+
+	&__bar:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.hamburger.active {
+	.hamburger__bar:nth-child(1) {
+		transform: translateY(8px) rotate(45deg);
+	}
+	.hamburger__bar:nth-child(2) {
+		opacity: 0;
+	}
+	.hamburger__bar:nth-child(3) {
+		transform: translateY(-8px) rotate(-45deg);
+	}
+}
+
+.nav-menu-on-show {
+	position: absolute;
+	top: 5.7rem;
+	left: 50%;
+	display: none;
+	padding: 2rem;
+	width: 87vw;
+	border-radius: 10px;
+	background-color: $c-nav-mobile;
+	backdrop-filter: blur(5px);
+	transform: translateX(-50%);
+
+	&.show {
+		display: block;
+		animation: show-nav 0.5s;
+	}
+
+	a {
+		text-decoration: none;
+		color: $c-white;
+	}
+}
+
+@keyframes show-nav {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+.menu {
+	list-style: none;
+
+	&__item {
+		padding-bottom: 1.7em;
+
+		svg {
+			transition: rotate 0.3s;
+		}
+
+		&:last-child {
+			padding-bottom: 0;
+		}
+
+		&-link {
+			display: flex;
+			justify-content: left;
+			gap: 0.6rem;
+			align-items: center;
+			width: 100%;
+			font-size: 1.2rem;
+			font-weight: 500;
+			transition: color 0.3s;
+
+			&.active {
+				color: $c-yellow;
+			}
+		}
+
+		&.show svg {
+			rotate: 180deg;
+		}
+	}
+
+	&__dropdown {
+		position: relative;
+		top: 1rem;
+		padding: 0 1rem 0 2rem;
+		max-height: 0;
+		border-radius: 6px;
+		background-color: $c-nav-mobile-submenu;
+		list-style: none;
+		transition: max-height 0.8s;
+		overflow: hidden;
+
+		a {
+			font-size: 1.06rem;
+			font-weight: 500;
+			transition: color 0.3s;
+		}
+
+		&.show {
+			max-height: 500px;
+		}
+
+		.active {
+			color: $c-yellow;
+		}
+
+		li {
+			margin: 0.5rem 0;
+
+			a {
+				display: flex;
+				padding: 0.5em 0;
+				justify-content: space-between;
+
+				svg {
+					rotate: 180deg;
+				}
+			}
+		}
+	}
+}

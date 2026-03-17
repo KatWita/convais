@@ -1,0 +1,21 @@
+@use '../scss/variables' as *;
+
+.headline {
+	&__label {
+		font-family: 'DM Sans', sans-serif;
+		color: $c-gray-200;
+		font-size: clamp($fs-14, 2vw + 0.2rem, $fs-16);
+		font-weight: bold;
+		text-transform: uppercase;
+
+		span {
+			letter-spacing: 3px;
+		}
+	}
+
+	&__title {
+		margin-top: 0.05em;
+		color: $c-white;
+		font-size: clamp($fs-26, 1.3682rem + 1.2838vw, $fs-45);
+	}
+}

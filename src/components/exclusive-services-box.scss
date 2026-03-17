@@ -1,0 +1,80 @@
+@use '../scss/variables' as *;
+
+.exclusive-s-box {
+	width: 100%;
+	.box-headline {
+		margin-bottom: 1.25rem;
+	}
+
+	&__services {
+		display: flex;
+		flex-direction: column;
+		gap: 0.938rem;
+	}
+
+	&__btn {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.5rem 0.5rem 0.5rem 1rem;
+		border: 1px solid $c-team-chart-border;
+		border-radius: $br-8;
+		background-color: $c-team-chart-bg;
+		color: $c-sub-text;
+		font-size: clamp($fs-16, 0.375rem + 0.7813vw, $fs-18);
+		font-family: $ff-dm-sans;
+		font-weight: $fw-semi-bold;
+		text-transform: capitalize;
+	}
+
+	&__icon-box {
+		display: grid;
+		place-content: center;
+		width: 37px;
+		height: 37px;
+		border: none;
+		border-radius: $br-10;
+		background-color: $c-white;
+
+		img {
+			width: 18px;
+		}
+	}
+}
+
+@media (width >= 64rem) {
+	.exclusive-s-box {
+		&__btn {
+			transition:
+				background-color 0.2s,
+				color 0.2s;
+
+			&:hover {
+				background-color: $c-very-dark-blue;
+				color: $c-white;
+
+				.exclusive-s-box__icon-box {
+					background-color: $c-yellow;
+				}
+			}
+		}
+
+		&__icon-box {
+			transition: background-color 0.2s;
+		}
+	}
+}
+
+//1536px
+@media (width >= 96rem) {
+	.exclusive-s-box {
+		&__btn {
+			padding: 0.5rem 0.5rem 0.5rem 1.313rem;
+		}
+
+		&__icon-box {
+			width: 45px;
+			height: 45px;
+		}
+	}
+}

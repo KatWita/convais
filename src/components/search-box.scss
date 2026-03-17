@@ -1,0 +1,143 @@
+@use '../scss/variables' as *;
+
+.search-box {
+	&__form {
+		position: relative;
+	}
+
+	.box-headline {
+		margin-bottom: 1.25rem;
+	}
+
+	&__input {
+		padding: 0.75rem 3.813rem 0.75rem 1rem;
+		width: 100%;
+		border: 1px solid $c-team-chart-border;
+		border-radius: $br-8;
+		background-color: $c-team-chart-bg;
+		color: $c-sub-text;
+		font-size: clamp($fs-14, -0.4583rem + 1.6667vw, $fs-16);
+		font-family: $ff-dm-sans;
+		font-weight: $fw-semi-bold;
+
+		&::placeholder {
+			color: $c-sub-text;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+	}
+
+	&__btn-submit {
+		position: absolute;
+		right: 0.5rem;
+		top: 50%;
+		transform: translateY(-50%);
+		display: grid;
+		place-content: center;
+		width: 37px;
+		height: 37px;
+		background-color: $c-yellow;
+		border: none;
+		border-radius: $br-10;
+
+		img {
+			width: 18px;
+		}
+	}
+
+	&__suggestions {
+		position: absolute;
+		top: calc(100% + 0.5rem);
+		left: 0;
+		right: 0;
+		background-color: $c-team-chart-bg;
+		border: 1px solid $c-team-chart-border;
+		border-radius: $br-8;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		z-index: 100;
+		overflow: hidden;
+	}
+
+	&__suggestion-item {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.625rem 1rem;
+		cursor: pointer;
+		transition: background-color 0.2s;
+
+		&:not(:last-child) {
+			border-bottom: 1px solid $c-team-chart-border;
+		}
+
+		&:hover {
+			background-color: $c-yellow;
+		}
+	}
+
+	&__suggestion-img {
+		width: 48px;
+		height: 48px;
+		object-fit: cover;
+		border-radius: $br-8;
+		flex-shrink: 0;
+	}
+
+	&__suggestion-info {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		overflow: hidden;
+	}
+
+	&__suggestion-title {
+		font-family: $ff-dm-sans;
+		font-weight: $fw-semi-bold;
+		font-size: $fs-14;
+		color: $c-sub-text;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&__suggestion-tags {
+		font-family: $ff-dm-sans;
+		font-size: $fs-12;
+		color: $c-sub-text;
+		opacity: 0.6;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+//1024px
+@media (width >= 64rem) {
+	.search-box__btn-submit {
+		transition: background-color 0.3s;
+
+		&:hover {
+			background-color: $c-yellow-btn-search;
+		}
+	}
+}
+
+//1536px
+@media (width >= 96rem) {
+	.search-box {
+		&__input {
+			padding: 1.125rem 4.625rem 1.125rem 1.313rem;
+		}
+
+		&__btn-submit {
+			width: 45px;
+			height: 45px;
+
+			img {
+				width: 22px;
+			}
+		}
+	}
+}

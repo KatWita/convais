@@ -1,0 +1,266 @@
+@use '../scss/variables' as *;
+
+.comments__list {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+	margin: 1.25rem 0 1.875rem;
+	position: relative;
+	min-height: 1px;
+}
+
+.comments__empty {
+	color: $c-sub-text;
+	font-family: $ff-dm-sans;
+	font-weight: $fw-medium;
+	font-size: clamp($fs-14, 0.6932rem + 0.9091vw, $fs-16);
+}
+
+.comment__meta,
+.btn-reply {
+	display: flex;
+	align-items: center;
+}
+
+.btn-reply {
+	gap: 0.6rem;
+	background: none;
+	font-size: clamp($fs-13, 0.5398rem + 1.3636vw, $fs-16);
+	text-transform: none;
+	cursor: pointer;
+}
+
+.comment {
+	display: grid;
+	align-items: center;
+	grid-template-columns: 25% auto;
+	gap: 0.6rem;
+	transition:
+		background 0.25s ease,
+		padding 0.25s ease,
+		border-radius 0.25s ease,
+		box-shadow 0.25s ease;
+
+	&__avatar {
+		grid-column: 1/2;
+		width: 100%;
+		max-width: 200px;
+		border-radius: $br-10;
+	}
+
+	&__meta {
+		grid-column: 2/-1;
+		justify-content: space-between;
+	}
+
+	&__author,
+	&__date {
+		font-weight: $fw-semi-bold;
+	}
+
+	&__author {
+		font-size: clamp($fs-14, 0.4286rem + 2.2321vw, $fs-24);
+	}
+
+	&__date,
+	&__text {
+		color: $c-sub-text;
+		font-family: $ff-dm-sans;
+	}
+
+	&__date {
+		margin-top: 0.3rem;
+		font-size: clamp($fs-12, 0.3864rem + 1.8182vw, $fs-16);
+	}
+
+	&__text {
+		grid-column: 1/-1;
+		grid-row: 2/3;
+		font-size: clamp($fs-14, 0.6932rem + 0.9091vw, $fs-16);
+		font-weight: $fw-medium;
+		line-height: $lh-p;
+		overflow-wrap: anywhere;
+		min-width: 0;
+
+		.mention {
+			color: $c-very-dark-blue-hover;
+			font-weight: $fw-semi-bold;
+		}
+	}
+}
+
+.comment--active {
+	background: #f7f7f7;
+	border-radius: 8px;
+	padding: 0.6rem;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+// replies
+.comment__replies {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+	padding-top: 1rem;
+	position: relative;
+	padding-left: 1rem;
+	animation: fadeIn 0.2s ease forwards;
+}
+
+.comment--reply {
+	position: relative;
+	padding-left: 1rem;
+	margin-left: 0;
+	border-left: none;
+
+	grid-template-columns: min(20%, 100px) auto;
+	gap: 0.8rem 1rem;
+
+	// łuk
+	&::before {
+		content: '';
+		position: absolute;
+		left: -0.5rem;
+		top: 0;
+		width: 1.5rem;
+		height: 7vw;
+		max-height: 2.5rem;
+		border-left: 1px solid #e0e0e0;
+		border-bottom: 1px solid #e0e0e0;
+		border-bottom-left-radius: 15px;
+		z-index: -1;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: -0.5rem;
+		bottom: -1.2rem;
+		width: 1px;
+		height: 110%;
+		z-index: -1;
+		background-color: #e0e0e0;
+	}
+
+	&:last-child::after {
+		display: none;
+	}
+
+	.comment__avatar {
+		width: 100%;
+		max-width: 100px;
+		aspect-ratio: 200/150;
+		object-fit: cover;
+		border-radius: $br-10;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* 540px */
+@media (width >= 33.75rem) {
+	.comment {
+		grid-template-columns: 30% auto;
+		gap: 1rem 1.5rem;
+	}
+
+	.comment--reply {
+		grid-template-columns: min(25%, 100px) auto;
+
+		&::before {
+			max-height: 2.8rem;
+		}
+	}
+}
+
+/* 768px */
+@media (width >= 48rem) {
+	.comments__list {
+		gap: 1.875rem;
+	}
+
+	.comment {
+		grid-template-columns: 200px 1fr;
+		grid-template-rows: auto 1fr;
+		align-content: start;
+		align-items: start;
+		gap: 1.25rem 1.875rem;
+
+		&__avatar,
+		&__meta,
+		&__text {
+			align-self: start;
+		}
+
+		&__avatar {
+			grid-row: 1 / 3;
+			grid-column: 1 / 2;
+			max-height: 150px;
+			border-radius: $br-20;
+			aspect-ratio: 1/1;
+			object-fit: cover;
+		}
+
+		&__meta,
+		&__text {
+			grid-column: 2 / 3;
+		}
+
+		&__meta {
+			grid-row: 1 / 2;
+		}
+
+		&__text {
+			grid-row: 2 / 3;
+		}
+	}
+
+	.comment__replies {
+		padding-left: 2.4rem;
+	}
+
+	.comment--reply {
+		grid-template-columns: min(25%, 140px) auto;
+		margin-left: 0;
+		padding-left: 1.25rem;
+
+		&::before {
+			left: -0.5rem;
+			width: 2rem;
+			height: 3.5rem;
+			max-height: unset;
+		}
+
+		&::after {
+			height: 110%;
+		}
+
+		.comment__avatar {
+			max-width: 140px;
+			aspect-ratio: 200/150;
+			border-radius: $br-20;
+		}
+	}
+}
+
+/* 1024px+ */
+@media (width >= 64rem) {
+	.btn-reply {
+		&__label {
+			transition: color 0.3s;
+		}
+
+		&:hover {
+			.btn-reply__label {
+				color: $c-very-dark-blue-hover;
+			}
+		}
+	}
+}

@@ -1,0 +1,116 @@
+@use '../scss/variables' as *;
+
+.acc {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.35rem 1rem;
+	width: 100%;
+	max-width: 872px;
+	border: 2px solid $c-yellow;
+	border-radius: $br-10;
+
+	&__questions {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	&__question {
+		border-top: 1px solid rgba(206, 206, 206, 0.5);
+		transition:
+			background-color 0.3s,
+			padding 0.3s;
+
+		&:first-child {
+			border-top: 1px solid transparent;
+		}
+
+		&.open {
+			padding: 0 1rem 0 0.5rem;
+			border-top: 1px solid $c-team-chart-bg;
+			border-radius: $br-10;
+			background-color: $c-team-chart-bg;
+
+			.acc__header-i {
+				transform: rotate(-45deg);
+			}
+
+			.acc__answer {
+				max-height: 300px;
+			}
+		}
+
+		&.open + &,
+		&.open {
+			border-top: none;
+		}
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 1.4rem 0;
+		width: 100%;
+		border: none;
+		background: none;
+		text-align: left;
+		text-transform: unset;
+
+		&-q {
+			font-size: clamp($fs-16, 0.8333rem + 0.8333vw, $fs-24);
+			font-weight: $fw-semi-bold;
+			line-height: 25px;
+			font-family: $ff-urbanist;
+		}
+
+		&-i {
+			transition: transform 0.3s;
+		}
+	}
+
+	&__answer {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	&__text {
+		margin: 0;
+		padding-bottom: 1.5rem;
+		max-width: 493px;
+		color: $c-sub-text;
+		font-size: clamp($fs-14, 0.6932rem + 0.9091vw, $fs-16);
+		font-family: $ff-dm-sans;
+		font-weight: $fw-medium;
+		line-height: $lh-p;
+	}
+}
+
+@media (width >= 48rem) {
+	.acc {
+		padding: 0.35rem 2.25rem;
+		border-radius: $br-20;
+
+		&__question.open {
+			padding: 0 1rem 0 2.188rem;
+			border-radius: $br-20;
+		}
+	}
+}
+
+@media (width >= 64rem) {
+	.acc__header {
+		.acc__header-q {
+			transition: color 0.3s;
+		}
+
+		&:hover {
+			.acc__header-q {
+				color: $c-very-dark-blue-hover;
+			}
+		}
+	}
+}

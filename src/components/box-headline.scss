@@ -1,0 +1,27 @@
+@use '../scss/variables' as *;
+
+.box-headline {
+	display: flex;
+	align-items: center;
+	gap: 0.625rem;
+	font-size: clamp($fs-18, 0.5795rem + 2.7273vw, $fs-24);
+	font-weight: $fw-bold;
+
+	&__icon {
+		display: flex;
+		align-items: center;
+
+		&--circle {
+			width: 5px;
+			height: 5px;
+			border: 1px solid $c-very-dark-blue;
+			border-radius: 50%;
+		}
+
+		&--line {
+			width: 24px;
+			height: 1px;
+			background-color: $c-very-dark-blue;
+		}
+	}
+}

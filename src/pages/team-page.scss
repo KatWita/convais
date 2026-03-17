@@ -1,0 +1,43 @@
+@use '../scss/variables' as *;
+
+.team-page {
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		width: 100%;
+
+		.headline__title {
+			text-align: center;
+		}
+	}
+	.team__members {
+		justify-content: center;
+		margin-top: 4rem;
+	}
+}
+
+//768px
+@media (width >= 48rem) {
+	.team-page {
+		&__content {
+			flex-direction: row;
+
+			.headline__title {
+				max-width: 401px;
+				text-align: left;
+			}
+		}
+	}
+}
+
+//1024px
+@media (width >= 64rem) {
+	.team-page {
+		background-image: url('/images/team/team-page-bg.png');
+		background-position: left bottom 7.5rem;
+		background-repeat: no-repeat;
+	}
+}

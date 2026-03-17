@@ -1,0 +1,58 @@
+@use '../scss/variables' as *;
+
+.latest-post {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+
+	&__img {
+		width: 7vw;
+		height: 7vw;
+		max-width: 100px;
+		max-height: 100px;
+		border-radius: $br-8;
+		object-fit: cover;
+	}
+
+	&__date-box {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 0.813rem;
+	}
+
+	&__date {
+		color: $c-sub-text;
+		font-size: clamp($fs-14, 0.5625rem + 0.3906vw, $fs-15);
+		font-family: $ff-dm-sans;
+		font-weight: $fw-medium;
+	}
+
+	&__title {
+		display: inline;
+		font-size: clamp($fs-16, 0.375rem + 0.7813vw, $fs-18);
+		background-image: linear-gradient(to right, $c-yellow-hover 0%, $c-yellow-transp 100%);
+		background-size: 0px 2px;
+		background-position: 0px 100%;
+		background-repeat: no-repeat;
+		padding: 0.1% 0px;
+		transition: 0.4s;
+	}
+}
+
+//1024px
+@media (width >= 64rem) {
+	.latest-post-link:hover {
+		.latest-post__title {
+			background-size: 100% 2px;
+			color: inherit;
+		}
+	}
+}
+
+//1400px
+@media (width >= 87.5rem) {
+	.latest-post {
+		gap: 1.25rem;
+	}
+}

@@ -1,0 +1,13 @@
+@use '../scss/variables' as *;
+
+.latest-posts {
+	.box-headline {
+		margin-bottom: 1.25rem;
+	}
+
+	&__posts {
+		display: flex;
+		flex-direction: column;
+		gap: 1.563rem;
+	}
+}
