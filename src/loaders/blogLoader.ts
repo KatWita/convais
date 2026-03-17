@@ -11,7 +11,7 @@ export const blogsLoader = async ({ request }: LoaderFunctionArgs) => {
 	tags.forEach(tag => params.append('tags', tag))
 	if (search) params.set('search', search)
 
-	const [response] = await Promise.all([fetch('/.netlify/functions/api/api/blogs?${params}`), wait(300)])
+	const [response] = await Promise.all([fetch(`/.netlify/functions/api/api/blogs?${params}`), wait(300)])
 
 	if (!response.ok) {
 		throw new Error('Blogs fetching error.')
@@ -25,8 +25,8 @@ export const singleBlogLoader = async ({ params }: LoaderFunctionArgs) => {
 	if (!title) throw new Response('Missing slug', { status: 400 })
 
 	const [blogRes, allRes] = await Promise.all([
-		fetch('/.netlify/functions/api/api/blogs?slug=${title}`),
-		fetch('/.netlify/functions/api/api/blogs?limit=0`),
+		fetch(`/.netlify/functions/api/api/blogs?slug=${title}`),
+		fetch(`/.netlify/functions/api/api/blogs?limit=0`),
 		wait(300),
 	])
 
