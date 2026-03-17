@@ -7,6 +7,10 @@ import { arrayContains, and, ilike, or } from 'drizzle-orm'
 
 const app = new Hono()
 
+app.all('*', async c => {
+	return c.json({ path: c.req.path, url: c.req.url })
+})
+
 app.use(
 	'/*',
 	cors({
